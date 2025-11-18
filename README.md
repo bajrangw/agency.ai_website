@@ -1,16 +1,38 @@
-# React + Vite
+**agency.ai_website**
+A modern web project built with React and Vite. This boilerplate streamlines development with HMR (Hot Module Replacement) and robust ESLint integration, providing a foundation for scalable production applications.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Features**
+Fast development with Vite
 
-Currently, two official plugins are available:
+React 18 with optimized HMR
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Customizable ESLint rules for best practices
 
-## React Compiler
+Simple structure—easy to expand and maintain
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Getting Started**
+Prerequisites
+Node.js (v16 or higher)
+npm or yarn
 
-## Expanding the ESLint configuration
+**Project Structure**
+src/ – Main application source code
+public/ – Static assets
+vite.config.js – Vite configuration
+.eslintrc – ESLint rules
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**ESLint Setup**
+This template includes basic ESLint rules. For TypeScript support and type-aware linting, check out the official TypeScript template and install typescript-eslint.
+
+**Customization**
+To further enhance linting, integrate Prettier or additional plugins as needed.
+To use the experimental React Compiler, consult the React Compiler documentation and adjust the build setup. Note: It's not enabled by default due to current performance considerations.
+
+**Contributing**
+Pull requests and issues are welcome! Please open an issue to discuss major changes before submitting a PR.
+
+**License**
+This project is open-sourced under the MIT License.
+To further enhance linting, integrate Prettier or additional plugins as needed.
+
+To use the experimental React Compiler, consult the React Compiler documentation and adjust the build setup. Note: It's not enabled by default due to current performance considerations.
