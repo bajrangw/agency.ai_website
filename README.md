@@ -1,7 +1,7 @@
 **agency.ai_website**
 A modern web project built with React and Vite. This boilerplate streamlines development with HMR (Hot Module Replacement) and robust ESLint integration, providing a foundation for scalable production applications.
 
-**Live link:** [challenges.cloudflare.com](https://agency-ai-website-seven.vercel.app/)
+**Live link:** [agency.ai](https://agency-ai-website-seven.vercel.app/)
 
 **Features**
 Fast development with Vite
