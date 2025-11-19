@@ -1,18 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import TrustedBy from './components/TrustedBy.jsx';
-import Services from './components/Services.jsx';
-import OurWork from './components/OurWork.jsx';
-import Teams from './components/Teams.jsx';
-import ContactUs from './components/ContactUs.jsx';
-import { Toaster } from 'react-hot-toast';
-import Footer from './components/Footer.jsx';
+import React, { useEffect, useRef, useState } from "react";
+import Navbar from "./components/Navbar.jsx";
+import Hero from "./components/Hero.jsx";
+import TrustedBy from "./components/TrustedBy.jsx";
+import Services from "./components/Services.jsx";
+import OurWork from "./components/OurWork.jsx";
+import Teams from "./components/Teams.jsx";
+import ContactUs from "./components/ContactUs.jsx";
+import { Toaster } from "react-hot-toast";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
-
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'light'
+    localStorage.getItem("theme") || "light"
   );
 
   const dotRef = useRef(null);
@@ -21,13 +20,23 @@ const App = () => {
   const mouse = useRef({ x: 0, y: 0 });
   const position = useRef({ x: 0, y: 0 });
 
+  // Initialize starting positions so overflow doesn't happen
+  useEffect(() => {
+    const startX = window.innerWidth / 2;
+    const startY = window.innerHeight / 2;
+
+    mouse.current = { x: startX, y: startY };
+    position.current = { x: startX, y: startY };
+  }, []);
+
+  // Cursor movement animation
   useEffect(() => {
     const handleMouseMove = (e) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener("mousemove", handleMouseMove);
 
     const animate = () => {
       position.current.x += (mouse.current.x - position.current.x) * 0.1;
@@ -44,23 +53,26 @@ const App = () => {
     animate();
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
     <>
-      <div
-        ref={outlineRef}
-        className="fixed top-0 left-0 h-10 w-10 rounded-full border border-primary pointer-events-none z-[9999]"
-        style={{ transition: "transform 0.1s ease-out" }}
-      ></div>
-  
-      <div
-        ref={dotRef}
-        className="fixed top-0 left-0 h-3 w-3 rounded-full bg-primary pointer-events-none z-[9999]"
-      ></div>
-  
+      {/* Cursor wrapper - prevents scrollbars forever */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-[9999]">
+        <div
+          ref={outlineRef}
+          className="absolute h-10 w-10 rounded-full border border-primary"
+          style={{ transition: "transform 0.1s ease-out" }}
+        ></div>
+
+        <div
+          ref={dotRef}
+          className="absolute h-3 w-3 rounded-full bg-primary"
+        ></div>
+      </div>
+
       <div className="dark:bg-black relative overflow-x-hidden">
         <Toaster />
         <Navbar theme={theme} setTheme={setTheme} />
